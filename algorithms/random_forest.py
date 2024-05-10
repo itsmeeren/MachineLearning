@@ -28,3 +28,7 @@ print("Accuracy:", accuracy)
 # Optionally, you can save the trained model for later use
 # with open('random_forest_model.pkl', 'wb') as f:
 #     pickle.dump(model, f)
+
+
+#For the random forest the metrics =entropy is not used because there are more trees which internally 
+# the classifier itself will have so
