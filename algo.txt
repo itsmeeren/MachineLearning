@@ -1,0 +1,83 @@
+Classification -yes no true false
+Regression - continous values needs to be predicted
+clustering - Data need to be arranged to produce output
+Dimensional reduction
+
+
+
+
+
+**Linear regression**
+	Continuous values
+
+	Numerical  - number based diffrentiation
+	categorical - charecteristics based diffrentiation
+	
+	
+	supervised
+		Regression -simple linear,multiple linear,polynomial linear 
+		classification
+		
+	[from scipy.stats import linregress]-> for regression finding
+	best fit line has the least square distance between the datapoints
+	
+	Multiple linear regression
+
+	onehot encoder is used for converting coatagorical data to binary vectors like 'red'=[1 1 0]
+	
+	
+	
+**Logisticis regression**
+	gives discrete values
+	This is used for classification purpose.
+	Dataset with one or more dependent variable used to determine binary output of dependent variable
+	
+	Classification algorithms
+		->Descision Tree - each branch node represents a choice leafnode represents decision
+		-> K_Nearrest Neighbour - determine the given object is ,based on similarity to the object
+		it is compared to
+	odds=probrability of happening/probability of not happening
+	
+	o=p/1-p
+	equation of the sigmoid function =p(x)= 1/1+e^-(b0+b1x)
+	
+**Descision Tree**
+	
+	used for feature (categorical) based diffrentiation
+	
+	Disadvantages
+	
+	overfitting occurs when the algorithm captures the noise in the data	
+	High variance occurs model become unstable for the small change in the data
+	Low biased tree -highly complicated descision tree tends to have low bias data which makes 
+	difficult for the model to work with new data
+	
+	Steps
+	
+	Entropy is the randomness in the dataset
+	Information gain -measure of decrease in entropy after the dataset is split
+	
+	leafnode -carries descision
+	descisionnode -have two or more branches
+	rootnode-top of descision node
+	
+	entropy= sum p_i*log(p_i)    from i =1 to k where i is the possible classes
+	
+	shape of the data is (x,y) x=no of rows
+				   y=no of columns
+	
+	
+**Random Forest**
+
+	accuracy is higher and training time is less
+	multiclass object detection is done using this algorithm provides better detection complicated
+	environments
+	used in kinect -game console for body movement detection
+	
+	
+	
+	Method that operates by creating multiple trees during the training phase 
+	The descision of the majority of the trees is chosen by random forest as the final descision
+	descision tree is the tree shaped diagram used to determine the course of action,each branch of the
+	tree represents the possible descision,occurence or reaction
+
