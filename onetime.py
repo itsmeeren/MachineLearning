@@ -2,8 +2,12 @@ import pandas as pd
 import numpy as np
 import bottleneck as bt
 import random
-from sklearn.datasets import load_iris
-from scipy.stats import linregress
+import os
+from matplotlib import pyplot as plt
+from matplotlib.pyplot import style
+style.use('ggplot')
+# from sklearn.datasets import load_iris
+# from scipy.stats import linregress
 
 
 import matplotlib.pyplot as plt
@@ -75,9 +79,34 @@ import matplotlib.pyplot as plt
 # print(df.shape)
 # print(df.head)
 
-x=pd.DataFrame({1:'apple',2:'apple',3:"banana"},index=list('W'))
-print(x)
-l=pd.factorize(x)[0]
-print(l)
+# x=pd.DataFrame({1:'apple',2:'apple',3:"banana"},index=list('W'))
+# print(x)
+# l=pd.factorize(x)[0]
+# print(l)
 
 #Which assigns the value for the categories and helps in diffrentiating
+
+# new_data=pd.DataFrame(np.random.randint(0,100,size=(100,12)),columns=list('ABCDEFGHIJKL'))
+# print(new_data)
+# plt.plot(new_data)
+# plt.show()
+# a=np.arange(15).reshape(5,3)
+# print(a)
+
+#can specify the numpy array in complex mode using dtype function
+# n=np.arange(24).reshape(2,3,4)
+# print(n)
+
+# file_path='/home/karthik/machine_learning/bank.csv'
+# # data_frame=pd.read_csv(file_path)
+# # print(data_frame.head())
+#
+# l1=[x for x in range(1,11)]
+
+# for creating the new file path fro the training the data
+file_path='/home/karthik/machine_learning/bank.csv'
+x={1:'hi',2:'hello'}
+for value in x.values():
+    new_file_path= os.path.join(file_path,value)
+    # print(x)
+

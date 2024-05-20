@@ -1,0 +1,8 @@
+A sequence of data processing components is called a data pipeline
+
+
+For housing price estimation we use 
+		Multiple regression- as estimation depends on multiple factors ansd its single variate
+		becuase we are estimating single variable that is price
+		performance we are choosing for the model is RMSE-root mean square error
+		RMSE acts as the cost function

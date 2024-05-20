@@ -81,3 +81,143 @@ Dimensional reduction
 	descision tree is the tree shaped diagram used to determine the course of action,each branch of the
 	tree represents the possible descision,occurence or reaction
 
+
+**Naive Bayes**
+
+	It woerks on the principle of conditional probability as given by the BAYES' theorem
+	P(A | B) = ( P(B | A) * P(A) ) / P(B)
+	it calculates the conditional probability based on the prior knowledge of conditions that might be
+	happening related to the event
+	
+	Uses:
+		Face recognition , Weather prediction 
+	Advantages
+		
+		Not sensitive to irrelavent features 
+		used in real time application because its fast
+		highly scalable with number of predictors and data points
+		needs less training data
+		used for both discrete and continuos data
+		
+**Support Vector Machine**
+	
+	svm is supervised learning method that looks at data and sorts it into one of the two categories
+	Distance between the support vectors and hyperplane should be far as possible
+	Hyper plane has the maximunm distance to the support vectors of any class
+	two terms D+ and D-
+	
+	D+ is the shortest distance to the closest positive points
+	D- is the shortest distance to the closest negetive points
+	Sum of D+ and D- is called the distance margin
+	after finding the largest distance point we can get the optimal hyperplane
+	
+	Working
+	
+	If the datas interfere within a class of one another then 'Kernel' function is used to transform 
+	them into 1D to 2D
+	suppose if the datas inside the 2D interferes then it should he converted to 3D for creating the
+	Hyperplane
+	
+	
+	Advantages
+		
+		High dimensional input space 
+		Sparse document vectors
+		Regularization parameter
+	 
+	
+**K-Nearest neighbour(KNN)**
+	
+	This classifies the datapoint based on how its neighbors are clasified
+	KNN stores all the available cases and classifies new classes based on similartiy measure
+	Data points are classfied  by the majority of the votes from its nearest neighbors
+	
+	K is likme circle which is used to diffrentiate between the data points and object is compared 
+	with the other objects and classified according to that 
+	
+	finding the right value of k is known as paramter tuning 
+	right value of k is important for the accuracy
+	
+	selecting the value of k
+		
+		sqrt(n) where n is the number of datapoints
+		odd value of k is choosen to avoid confusion between two classes of data
+	
+	used when 
+		
+		when the data is labeled
+		data is noise free
+image	
+	working 
+	
+	
+		to find the nearest neighbor in a plane Euclidian distance formula is used
+		after finding distance we look at nearest distances then we take k value 
+	In code
+	
+	standard scaler -preprocessor for avoiding the Bias
+
+**convulational Nueral Network**
+	
+	
+	Image Recognition
+		
+		it takes the input as the pixels of image in the form of array
+		hidden layers carry out the feature extraction and do some calculation and 
+		manipulation
+		there are multiple layers 
+			*Relu layer
+			*convulution layer
+			*pooling layer -pooling information together
+		convulaution layer uses matrix filter and performs the convulution operation to
+		detect the patterns in the image
+		
+	flattening layer
+		flattening is the process of converting all resultant 2 dimensional array from pooled
+		map into a single continuous linear vector
+		
+		then it is fed into the fully connected layer as the input to classify the image
+	
+		
+	
+	
+	Relu function - 
+		
+		*performs elementwise operstion
+		*sets all the negetive pixels to 0
+		*introduces non linearity to the model
+		*then output is the rectified feature map
+	
+	
+	pooling 
+		
+		it is the down sampling operation which reduces the dimensionality of the feature 
+		map
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
