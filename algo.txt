@@ -27,7 +27,7 @@ Dimensional reduction
 	
 	
 	
-**Logisticis regression**
+**Logistics regression**
 	gives discrete values
 	This is used for classification purpose.
 	Dataset with one or more dependent variable used to determine binary output of dependent variable
@@ -196,28 +196,167 @@ image
 
 	
 	
+Tensorboard 
+
+is a great visualization tool used for viewing learning curves and comparing them with multiple runs
+To use it, you must modify your program so that it outputs the data you want to visu‐
+alize to special binary log files called event files. Each binary data record is called a
+summary.
+
+
+Finetuning 
+	
+	
+	gridsearch 
+	
+	again gridsearch and randamized search can be used with pramater distibution list
+	out of which it finds the best hyperparamter 
+	
+
+activation function 
+
+
+	relu -  0 to infinity
+	tanh-   (-1,1)
+	sigmoid- (0,1) used in binary classification
+	softmax- [0,1] sum of all outputs equals 1
+
+
+problems
+
+
+
+	vanishing gradient problems
+		the Gradient Descent update leaves the lower
+layer connection weights virtually unchanged, and training never converges to a good
+solution. This is called the vanishing gradients problem
+
+
+	exploding gradient problem
+	
+	the opposite
+can happen: the gradients can grow bigger and bigger, so many layers get insanely
+large weight updates and the algorithm diverges. This is the exploding gradients prob‐
+lem
+
+in relu functions some times the die -means starts ouputting 0 rather than other 
+	those are called dying nuerons ,becuase input is negetive to those nuerons 
+	
+to overcome this leaky relu is used - The hyperparameter α defines how much the function “leaks”: it is the
+slope of the function for z < 0, and is typically set to 0.01. This small slope ensures
+that leaky ReLUs never die; they can go into a long coma, but they have a chance to
+eventually wake up
+Elu - exponential linear unit outperforms both leaky and relu 
+	ELUα z =
+		α (exp z − 1) if z < 0
+		z             if z ≥ 0
+
+
+
+
+	
+SELU - enhanced version of ELU 
+
+then the network will self-normalize: the output of each layer will tend to
+preserve mean 0 and standard deviation 1 during training, which solves the vanish‐
+ing/exploding gradients problem
+
+
+
+To use the leaky ReLU activation function, you must create a LeakyReLU instance like
+this:
+
+SELU > ELU > leaky ReLU (and its variants) > ReLU > tanh> logistic.
+
+leaky_relu = keras.layers.LeakyReLU(alpha=0.2)
+layer = keras.layers.Dense(10, activation=leaky_relu,
+kernel_initializer="he_normal")
+
+For SELU activation, just set activation="selu"
+izer="lecun_normal" when creating a layer:
+and kernel_initial
+layer = keras.layers.Dense(10, activation="selu",
+kernel_initializer="lecun_normal")
+
+kernel initializer
+	the connection weights of each layer must be initialized randomly as
+	(fan_in +fan-out)/2
+	
+various initializers for activation function
+	Glorot or Glarot_uniform --> one, Tanh, Logistic, Softmax   , 1 / fanavg
+
+        He      --> ReLU & variants      , 2 / fanin
+	LeCun  --> SELU1                 , fanin
+
+	
+	
+batch normalization is used for vanishing and  exploding gradients
+The technique consists of adding an operation in the model just before or after the
+activation function of each hidden layer, simply zero-centering and normalizing each
+input, then scaling and shifting the result using two new parameter vectors per layer
+	
+Image net
+	ImageNet is a large database of images classified into
+many classes and commonly used to evaluate computer vision systems
+	
+The BatchNormalization class has quite a few hyperparameters you can tweak. The
+defaults will usually be fine, but you may occasionally need to tweak the momentum.
+This hyperparameter is used when updating the exponential moving averages: given a
+new value v (i.e., a new vector of input means or standard deviations computed over
+the current batch), the running average � is updated using the following equation:
+v
+v × momentum + v × 1 − momentum
+
+gradient clipping is used for preventing exploding gradients so that they never exceed 
+set threshhold during backpropogation
+
+transfer learning 	
+	learning the model witha already trained model 
+		that is working with already existing nueral network
+
+
+applying a good initiali‐
+zation strategy for the connection weights, using a good activation function, using
+Batch Normalization, and reusing parts of a pretrained network (possibly built on an
+auxiliary task or using unsupervised learning).
+
+1 moment optimization
+2 nesterov accelerated gradient
+3 Adagrad -
+	In short, this algorithm decays the learning rate, but it does so faster for steep dimen‐
+sions than for dimensions with gentler slopes. This is called an adaptive learning rate
+
+In short, this algorithm decays the learning rate, but it does so faster for steep dimen‐
+sions than for dimensions with gentler slopes. This is called an adaptive learning rate.
+	
+	
+adam and nadam
+	adam uses adaptive moment estimation ,combines momentum optimisation and rmsprop
+	nadam uses one more thing ,nesterov accelerated gradient
 	
 	
 	
 	
+learning rate 
+	learning rate must be selected 
+		high - diverges from the solution
+		low- converges before the solution [suboptimal solution]
+	start with high adn then set it to low 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	learning rate Reduction types
+		1 Power scheduling
+		2 Exponential  scheduling
+		3 piecewise  scheduling
+		4 performance  scheduling
+regularization technique
+	1 l1 and l2
+	2 Dropout
+
+
+It is a fairly simple algorithm: at every training step, every neuron (including the
+input neurons, but always excluding the output neurons) has a probability p of being
+temporarily “dropped out,” meaning it will be entirely ignored during this training
+step, but it may be active during the next step (see Figure 11-9). The hyperparameter
+p is called the dropout rate
 	
 	

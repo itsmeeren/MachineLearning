@@ -104,9 +104,37 @@ import matplotlib.pyplot as plt
 # l1=[x for x in range(1,11)]
 
 # for creating the new file path fro the training the data
-file_path='/home/karthik/machine_learning/bank.csv'
-x={1:'hi',2:'hello'}
-for value in x.values():
-    new_file_path= os.path.join(file_path,value)
-    # print(x)
+# file_path='/home/karthik/machine_learning/bank.csv'
+# x={1:'hi',2:'hello'}
+# for value in x.values():
+#     new_file_path= os.path.join(file_path,value)#  (initpial path ,added path)
+#     # print(x)
+
+
+# df=pd.DataFrame(np.random.rand(3,3))
+# # df.drop(2,axis=1,inplace=True)
+# perry=[x for x in range(3)]
+# df['hello']=perry
+#
+# print(df)
+
+x=[x for x in range(10)]
+
+print(x[:10])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
