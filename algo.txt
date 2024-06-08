@@ -358,5 +358,20 @@ input neurons, but always excluding the output neurons) has a probability p of b
 temporarily “dropped out,” meaning it will be entirely ignored during this training
 step, but it may be active during the next step (see Figure 11-9). The hyperparameter
 p is called the dropout rate
+
+	3 monte carlo dropout
+	4 max norm regularixation
+	Another regularization technique that is quite popular for neural networks is called
+max-norm regularization: for each neuron, it constrains the weights w of the incom‐
+ing connections such that ∥ *w* ∥2 ≤ _r_, where r is the max-norm hyperparameter
+and ∥ · ∥2 is the l2 norm.
+
+usually numpy uses 64 bit precision by defualt but tensorflow uses 32 bit which 
+is enough for the nueralnetwork
 	
+since deep learning models are trained on larger dataset so that wont fit inside the ram
+so DATA API in tensorflow is used
+TensorFlow takes care of all the implementation details, such as multithreading,
+queuing, batching, prefetching, and so on	s
 	
+
