@@ -118,16 +118,20 @@ import matplotlib.pyplot as plt
 #
 # print(df)
 
-
-x=[x for x in range(10)]
-
-
+#
+# x=[x*x for x in range(10)]
+#
+#
 # print(x[:10])
 
 
 
+x=[1,2,3,4]
 
-
+squared_num = lambda x: x * x
+x1 = list(map(squared_num, x))
+print(x1)  # Output: [1, 4, 9, 16]
+# lambda function with map function can be used to apply function to iterable objectsd in python
 
 
 

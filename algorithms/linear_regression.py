@@ -34,4 +34,5 @@ print("Mean Squared Error:", mse)
 # Optionally,  can save the trained model for later use
 with open('linear_regression_model.pkl', 'wb') as f:
     pickle.dump(model, f)
-    
+
+

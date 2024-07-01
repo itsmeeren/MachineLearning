@@ -374,4 +374,48 @@ so DATA API in tensorflow is used
 TensorFlow takes care of all the implementation details, such as multithreading,
 queuing, batching, prefetching, and so on	s
 	
+nuerons in second layer of cnn not connected to all pixelsonly connected to pixels
+in their respective fields
+In turn, each neuron in the second convolutional layer is connected
+only to neurons located within a small rectangle in the first layer. This architecture
+allows the network to concentrate on small low-level features in the first hidden layer,
+then assemble them into larger higher-level features in the next hidden layer
+
+in order for a layer to have the same weight its common to add zeros aronund the input that is called zero padding
+The shift from one receptive field to the
+next is called the stride
+a nuerons weight can be represented as small image the size of the receptive field called
+as filters also called as kernels
+
+
+	when the image in fed as the input feature maop uses horizontal lines 
+	and vertical lines to extract the feature out of the image ,then that 
+	out put is called feature map
+	
+	convulational layers can have multiple feature map and images can have multiple
+	channels [RGB] and grayscale has only one channel
+
+
+Tensorflow implementation
+	
+	In TensorFlow, each input image is typically represented as a 3D tensor of shape
+[height, width, channels]. A mini-batch is represented as a 4D tensor of shape
+[mini-batch size, height, width, channels]. The weights of a convolutional
+layer are represented as a 4D tensor of shape [fh, fw, fn′, fn]. The bias terms of a convo‐
+lutional layer are simply represented as a 1D tensor of shape [fn]	
+
+pooling 
+
+	Their goal is to subsample (i.e., shrink) the input image in order to
+reduce the computational load, the memory usage, and the number of parameters
+(thereby limiting the risk of overfitting).
+cnn layer before output is also known as bottleneck layer
+
+tensorflow implementation
+
+	each input image is typically represented as a 3D tensor of shape
+[height, width, channels]. A mini-batch is represented as a 4D tensor of shape
+[mini-batch size, height, width, channels]. The weights of a convolutional
+layer are represented as a 4D tensor of shape [fh, fw, fn′, fn]. The bias terms of a convo‐
+lutional layer are simply represented as a 1D tensor of shape [fn]
 
