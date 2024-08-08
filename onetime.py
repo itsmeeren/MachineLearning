@@ -139,7 +139,7 @@ int=[i for i in x]
 print(' '.join(int))
 
 
-
+hehegit
 
 
 
