@@ -1,16 +1,7 @@
-import pandas as pd
-import numpy as np
-import bottleneck as bt
-import random
-import os
-from matplotlib import pyplot as plt
 from matplotlib.pyplot import style
 style.use('ggplot')
 # from sklearn.datasets import load_iris
 # from scipy.stats import linregress
-
-
-import matplotlib.pyplot as plt
 
 
 #creating the datraframe using predefined index using date_frame and HEAD AND TAIL functions
