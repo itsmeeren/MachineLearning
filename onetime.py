@@ -126,16 +126,26 @@ import matplotlib.pyplot as plt
 
 
 
-x=[1,2,3,4]
-
-squared_num = lambda x: x * x
-x1 = list(map(squared_num, x))
-print(x1)  # Output: [1, 4, 9, 16]
-# lambda function with map function can be used to apply function to iterable objectsd in python
-
-
+# x=[1,2,3,4]
+#
+# squared_num = lambda x: x * x
+# x1 = list(map(squared_num, x))
+# print(x1)  # Output: [1, 4, 9, 16]
+# # lambda function with map function can be used to apply function to iterable objectsd in python
 
 
+x=['hello','hurray']
+
+y=' '.join(x)
+print(y)
+
+
+# xe=[i for i in  range(10) if i!=2]
+# print(xe)
+
+
+int=[i for i in x]
+print(' '.join(int))
 
 
 
