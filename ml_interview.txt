@@ -1,0 +1,372 @@
+Supervised learning
+	
+	training data you feed  to the model is the desired solution called labels
+	main function is to predict output
+	regression is the process that tells  probability of the given data belongs to
+	the class or not
+
+Unsupervised learning 
+
+	Model learns without teacher
+	
+	eg : visualization algorithms
+	     clustering algorithms
+	    
+	    
+	feature extraction - combining the multi data class into single data
+	dimentionality reduction - which the goal is to simplify the data
+	without losing too much information
+	
+	
+	anamoly detection - detecting new instance
+	The system is shown mostly normal instances during training, so it
+	learns to recognize them and when it sees a new instance it can tell whether it looksike a normal one or whether it is likely an anomaly
+
+Reinforcement learning
+
+	agent -which looks the environment selects and perform actions and get reward
+	s or penalties then it learns by itself based on these called policy
+	
+	policy-A policy defines what action the agent should choose when it is in a
+	given situation.
+	
+
+Types of learning 
+
+1) Batch or offline learning - it learns once and it applies what it had learned , and no more learning 
+
+2)Online learning -In online learning, you train the system incrementally by feeding it data instances
+sequentially, either individually or by small groups called mini-batches
+
+
+Learning Rate in model
+
+One important parameter of online learning systems is how fast they should adapt to
+changing data: this is called the learning rate. If you set a high learning rate, then your
+system will rapidly adapt to new data, but it will also tend to quickly forget the old
+data (you don’t want a spam filter to flag only the latest kinds of spam it was shown).
+Conversely, if you set a low learning rate, the system will have more inertia; that is, it
+will learn more slowly, but it will also be less sensitive to noise in the new data or to
+sequences of nonrepresentative data points (outliers).
+	
+instance based learning 
+	
+	System learns the example by heart ,then generalizes to new cases by comparing them to the learned example before
+	
+Model based learning 
+	
+	Directly build a model of that examples and use that model to  make predictions
+	
+	model selection plays a very important role in model based learning 
+
+common problems 
+
+	
+	insufficient data quantity
+	sampling bias
+	irrelavent data features
+	poor data quality
+	overfitting - it does well on trained data but not on new instances
+	
+Regularization -Constraining a model to make it simpler and reduce the risk of overfitting 
+Hyperparameter . A hyperparameter is a parameter of a learning algorithm (not of the
+model). As such, it is not affected by the learning algorithm itself
+
+tesing and validating 
+
+
+	generally take 80 percent data for the training and 20 perent for testing
+
+generalization error should be reduced ,so in testing dataset some part called validation or dev set is retained and other part is full set
+choose the best hyperoarameter based on reduced set and next for thr final model train the model on full training set and model is selected based on validation set
+
+full training set- model training
+validation set- model selection
+other part than both (training - validation) - hyperparameter selection
+
+Repeated cross validation - repeatedly change the hyperparameter of the model where it reduces the generalization error to least possible
+
+
+Gradient Descent _ Optimization algorithm tweak parameters iteratively in order to minimize a cost function
+
+1)stochastic gradient descent
+2)Gradient descent
+3)Batch gradient descent
+
+Theta - parameters of the linear regression model like slope and intercept ,find the optimal value to reduce the cost of the function
+
+costfunction(RMSE) - takes the difference between actual and predicted value and squares and then takes avg
+
+Note
+	weights in nueral network is analogous to the theta values ,where the optimisation starts finding the point where the gradient of the slope is zero
+
+
+Learning rate in gradient descent
+	
+	size of steps for increament for algorithm
+	
+	small - algorithm needs many iteration
+	large algorithm may diverge and fails to find solution
+
+
+
+batch Gradient 
+	
+	it uses whole training set to compute gradients at each iteration
+	it takes long time to calculate and not suitable for large dataset
+
+
+Stochastic gradient
+
+	Stochastic Gradient Descent just
+	picks a random instance in the training set at every iteration and computes the gradients based only on that single instance
+	
+	used for out of core learning -when data doesnt fit in system memory but stored in 
+	harddisk
+	some instances may be picked several times and some may not be picked several times so data must be shuffled at every epoch
+	
+Mini batch gradients
+	
+	Mini-batch gradient descent is a compromise between batch and stochastic gradient descent. It calculates the gradient using a small subset (mini-batch) of the training data in each iteration
+	
+	
+	Normal Equation
+	
+		it calculates the parameters in one step without requiring multiple iterations.
+		
+NOTE
+
+Normal equation gives the perfect solution or best fit line but as the number of feature increases then the matrix calculation is expensive so gradient descent methods are used which are approximation methods
+
+If the data points are spreaded across then linear line would not fit the data points at that time polynomial regression method is used to fit the data points
+
+Regularization (Lambda)
+
+	constrain the model such that it cant be overfitted
+	
+	simple way to regularize the polynomial data is that reduce the degree of the polynomial model
+	
+	penalty term (Theta)
+	1 Ridge regression(l2) - adds the penalty term 
+				penalty term is the square of the coedfficient
+	2 Lasso regression(l1) - this also adds the penalty term but that is absolute value 
+				it hass the ability to reduce the feature so computationally efficient than 
+	3 Elastic net- its the middle ground between ridge and lasso, 
+				it introduces the term r ,when r=0 its ridge when r=1 its lasso
+				
+				 
+	4 Early stopping-  	A very different way to regularize iterative learning algorithms such as Gradient
+				Descent is to stop training as soon as the validation error reaches a minimum. This is
+				called early stopping
+	
+	
+	
+Usage
+
+its better to use ridge rather than plane linear regression
+when no of feature is more use lasso and elastic is prefferred because lasso may fail when no of feature is > no of training instances
+	
+	
+linear regression - used to predict the continuous value
+Logistic Regression or Sigmoid(S shaped)
+	its used for finding whether the data belongs to perticular class or not or classification
+	
+	uses sigmoid function and then outputs the vaalues from 0-1
+	
+	it finds the descision boundary which is the line which seperates two classes which is the main function of the logit regression
+	
+	
+Softmax Regression
+
+	it is the generalized regression model which supports multiple class classification without combining multiple binary classification
+	
+	working 
+	
+		1 for every class score is calculated for every class
+		2 using softmax function find probabilty which adds up to one 
+		3 then class with highest probabilty is the predicted class 
+	
+	argmax -The argmax operator returns the value of a variable that maximizes a function. In
+		this equation, it returns the value of k that maximizes the estimated probability
+		σ(s(x))k
+
+Dimensionality reduction
+
+	reducing the number of features in the data without losing much information
+	
+	two main approaches are 
+		1 Projection: Maps data from a high-dimensional space to a lower-dimensional space directly.
+		2 Manifold: Assumes data lies on a lower-dimensional curved surface embedded in a higher-dimensional space.
+		it is like creating the manifold and training instances lie on that
+Linear methods
+	
+	PCA tries to find the directions in the data where there is the most spread (variance).
+ These directions are the principal components.  
+
+
+To summarize:
+
+    Variance measures how spread out data is.   
+
+Source icon
+PCA finds the most important patterns in data and creates new, simpler pieces of information (principal components) based on where the data is most spread out.   
+	
+
+
+Projecting Down to d Dimensions
+Once you have identified all the principal components, you can reduce the dimen‐
+sionality of the dataset down to d dimensions by projecting it onto the hyperplane
+defined by the first d principal components
+
+
+
+randomised pca
+
+tweaking some parameters the pca is done on full training set
+
+incremental PCA
+pca is usually done on full training set makes computation complex so we use make batches of the dataset for reducing complexity and can be used for online training
+
+NON Linear dimensionality reduction
+
+
+Kernel PCA 
+Kernel PCA finds patterns in the data based on these similarities without explicitly mapping the data into a higher-dimensional space.
+
+LLE locally linear embedding
+
+LLE is a non-linear dimensionality reduction technique that preserves local relationships between data points. It's particularly useful for data that lies on a low-dimensional manifold embedded in a high-dimensional space.
+
+its basically used to extract the features out of manifold in simple terms the manifold consist of higher dimension features embedded inside it
+
+
+
+
+Nueral Network
+
+Perceptron
+
+
+perceptron is the simplest nueral network it works on the TLU threshhold logic unit
+instead of binary output and input they are now numbers
+perceptron is the fully onnected layer becuase its connected to every nueron in previous layer nuerons extra bias feature is added to the nueron through Bias nueron ,perceptrons are trained by "hebbs rule" it is almost resembles sgd (gradient descent ) nad loss=" perceptron "
+
+infact that singe layer perceptron cannot solve xor problems but multilayer perceptron solved them ,FNN feed forward nueral networksignal flows in single direction
+
+BackPropogation
+
+
+back propogaton algorithm make sure that how the model parameter and bias term should be tweaked so that the error is very less
+
+weights are initially random values and they are learned through input data they multiply their weights with input and sums up and activation function is applied is forward network
+backward network error is fed back and then adjust weights and reduce error
+
+first the mini batch is made and that is fed to every layer and output is calculated at every layer then forwarded called forward pass or prediction
+
+loss function compares desired with actual output and then it checks how much each connection contributed by applying chain rule (calculus) and this is from output layer to input layer(ulta)
+
+it finds out gradient error and then performs gradient decent process
+ for single output 1 output nueron ,for n output n nueron at output is needed
+ 
+
+logistic function 0-1
+Tanh -1 - 1
+Relu > 0
+
+loss function typically used is mean squared error , lot of outliers then use absoulute error , Huberloss - combination of both 
+
+
+vanishing gradient
+	this happens because backpropogation algo finds the derivative which doesnt change as progresses
+	gradients often get smaller and smaller as the algorithm progresses
+down to the lower layers. As a result, the Gradient Descent update leaves the lower
+layer connection weights virtually unchanged, and training never converges to a good
+solution. This is called the vanishing gradients problem
+
+
+Exploding gradient
+
+In some cases, the opposite
+can happen: the gradients can grow bigger and bigger, so many layers get insanely
+large weight updates and the algorithm diverges. This is the exploding gradients prob‐
+lem
+
+
+weight initializers
+
+fan in and fan out 
+	number of inputs a nueron recieves and output it produces
+
+keeping a balance between fan-in and fan-out helps prevent the signal  entering the nueron from getting too weak or too strong as it moves through the network.
+This is crucial for effective training.
+
+Glorot Initialization: 
+		Specifically designed to preserve gradient magnitudes during backpropagation, suitable for activation functions like sigmoid and tanh.
+		keras use glarot with uniform initialization
+He Initialization: Similar to Xavier but tailored for ReLU activation functions.
+
+
+LeCun initializers- It aims to prevent vanishing or exploding gradients by ensuring that the variance of activations remains constant across layers.
+
+Glorot-->None, Tanh, Logistic, Softmax 1 / fanavg
+He-->ReLU & variants2 / fanin
+LeCun--> SELU1 / fanin
+
+
+
+activation functions
+
+RELU
+
+the ReLU activation function is not perfect. It suffers from a problem
+known as the dying ReLUs: during training, some neurons effectively die, meaning
+they stop outputting anything other than 0
+
+
+leaky Relu
+
+	leaky relu introduces a leaky term which prevents the dying of relu 
+	
+	This function is defined as LeakyReLUα(z) = max(αz, z) (see
+	Figure 11-2). The hyperparameter α defines how much the function “leaks”: it is the
+	slope of the function for z < 0, and is typically set to 0.01. This small slope ensures
+	that leaky ReLUs never die; they can go into a long coma, but they have a chance to
+	eventually wake up.
+	
+	
+randomised Relu
+
+
+	They also evaluated the
+	randomized leaky ReLU (RReLU), where α is picked randomly in a given range during
+	training, and it is fixed to an average value during testing
+
+PReLU-parametric leaky ReLU 
+	where α is authorized
+	to be learned during training (instead of being a hyperparameter, it becomes a
+	parameter that can be modified by backpropagation like any other parameter)
+
+
+
+ELU exponential nueral network
+
+	performed better that relu 
+	faster convergence rate and slower at training (slower than relu )
+
+	features
+		solves vanishing gradient 
+		no nueron dying like Relu
+		
+SELU- -self normalizing 
+	scaled version of ELU,the output of each layer will tend to
+	preserve mean 0 and standard deviation 1 during training, which solves the vanish‐
+	ing/exploding gradients problem
+	
+   conditions for using SELU
+   	
+   	1 should be initialized with LeCun
+   	2 input featues must be standardized (mean 0 standard deviation 1)
+   	3 used only for  sequential model , not with non sequential like recurrent nueral network
+   	
+   	
+	

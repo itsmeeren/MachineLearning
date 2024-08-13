@@ -125,21 +125,25 @@ style.use('ggplot')
 # # lambda function with map function can be used to apply function to iterable objectsd in python
 
 
-x=['hello','hurray']
+# x=['hello','hurray']
 
-y=' '.join(x)
-print(y)
-
-
-# xe=[i for i in  range(10) if i!=2]
-# print(xe)
-
-
-int=[i for i in x]
-print(' '.join(int))
-
-
+# y=' '.join(x)
+# print(y)
+#
+#
+# # xe=[i for i in  range(10) if i!=2]
+# # print(xe)
+#
+#
+# int=[i for i in x]
+# print(' '.join(int))
 
 
+# print(x*2)
 
+import numpy as np
 
+#np.argmax return the maximum number's index
+
+my_array=np.array([10,14,12,141])
+print(np.argmax(my_array))
