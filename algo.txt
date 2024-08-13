@@ -27,7 +27,7 @@ Dimensional reduction
 	
 	
 	
-**Logisticis regression**
+**Logistics regression**
 	gives discrete values
 	This is used for classification purpose.
 	Dataset with one or more dependent variable used to determine binary output of dependent variable
@@ -80,4 +80,342 @@ Dimensional reduction
 	The descision of the majority of the trees is chosen by random forest as the final descision
 	descision tree is the tree shaped diagram used to determine the course of action,each branch of the
 	tree represents the possible descision,occurence or reaction
+
+
+**Naive Bayes**
+
+	It woerks on the principle of conditional probability as given by the BAYES' theorem
+	P(A | B) = ( P(B | A) * P(A) ) / P(B)
+	it calculates the conditional probability based on the prior knowledge of conditions that might be
+	happening related to the event
+	
+	Uses:
+		Face recognition , Weather prediction 
+	Advantages
+		
+		Not sensitive to irrelavent features 
+		used in real time application because its fast
+		highly scalable with number of predictors and data points
+		needs less training data
+		used for both discrete and continuos data
+		
+**Support Vector Machine**
+	
+	svm is supervised learning method that looks at data and sorts it into one of the two categories
+	Distance between the support vectors and hyperplane should be far as possible
+	Hyper plane has the maximunm distance to the support vectors of any class
+	two terms D+ and D-
+	
+	D+ is the shortest distance to the closest positive points
+	D- is the shortest distance to the closest negetive points
+	Sum of D+ and D- is called the distance margin
+	after finding the largest distance point we can get the optimal hyperplane
+	
+	Working
+	
+	If the datas interfere within a class of one another then 'Kernel' function is used to transform 
+	them into 1D to 2D
+	suppose if the datas inside the 2D interferes then it should he converted to 3D for creating the
+	Hyperplane
+	
+	
+	Advantages
+		
+		High dimensional input space 
+		Sparse document vectors
+		Regularization parameter
+	 
+	
+**K-Nearest neighbour(KNN)**
+	
+	This classifies the datapoint based on how its neighbors are clasified
+	KNN stores all the available cases and classifies new classes based on similartiy measure
+	Data points are classfied  by the majority of the votes from its nearest neighbors
+	
+	K is likme circle which is used to diffrentiate between the data points and object is compared 
+	with the other objects and classified according to that 
+	
+	finding the right value of k is known as paramter tuning 
+	right value of k is important for the accuracy
+	
+	selecting the value of k
+		
+		sqrt(n) where n is the number of datapoints
+		odd value of k is choosen to avoid confusion between two classes of data
+	
+	used when 
+		
+		when the data is labeled
+		data is noise free
+image	
+	working 
+	
+	
+		to find the nearest neighbor in a plane Euclidian distance formula is used
+		after finding distance we look at nearest distances then we take k value 
+	In code
+	
+	standard scaler -preprocessor for avoiding the Bias
+
+**convulational Nueral Network**
+	
+	
+	Image Recognition
+		
+		it takes the input as the pixels of image in the form of array
+		hidden layers carry out the feature extraction and do some calculation and 
+		manipulation
+		there are multiple layers 
+			*Relu layer
+			*convulution layer
+			*pooling layer -pooling information together
+		convulaution layer uses matrix filter and performs the convulution operation to
+		detect the patterns in the image
+		
+	flattening layer
+		flattening is the process of converting all resultant 2 dimensional array from pooled
+		map into a single continuous linear vector
+		
+		then it is fed into the fully connected layer as the input to classify the image
+	
+		
+	
+	
+	Relu function - 
+		
+		*performs elementwise operstion
+		*sets all the negetive pixels to 0
+		*introduces non linearity to the model
+		*then output is the rectified feature map
+	
+	
+	pooling 
+		
+		it is the down sampling operation which reduces the dimensionality of the feature 
+		map
+
+	
+	
+Tensorboard 
+
+is a great visualization tool used for viewing learning curves and comparing them with multiple runs
+To use it, you must modify your program so that it outputs the data you want to visu‐
+alize to special binary log files called event files. Each binary data record is called a
+summary.
+
+
+Finetuning 
+	
+	
+	gridsearch 
+	
+	again gridsearch and randamized search can be used with pramater distibution list
+	out of which it finds the best hyperparamter 
+	
+
+activation function 
+
+
+	relu -  0 to infinity
+	tanh-   (-1,1)
+	sigmoid- (0,1) used in binary classification
+	softmax- [0,1] sum of all outputs equals 1
+
+
+problems
+
+
+
+	vanishing gradient problems
+		the Gradient Descent update leaves the lower
+layer connection weights virtually unchanged, and training never converges to a good
+solution. This is called the vanishing gradients problem
+
+
+	exploding gradient problem
+	
+	the opposite
+can happen: the gradients can grow bigger and bigger, so many layers get insanely
+large weight updates and the algorithm diverges. This is the exploding gradients prob‐
+lem
+
+in relu functions some times the die -means starts ouputting 0 rather than other 
+	those are called dying nuerons ,becuase input is negetive to those nuerons 
+	
+to overcome this leaky relu is used - The hyperparameter α defines how much the function “leaks”: it is the
+slope of the function for z < 0, and is typically set to 0.01. This small slope ensures
+that leaky ReLUs never die; they can go into a long coma, but they have a chance to
+eventually wake up
+Elu - exponential linear unit outperforms both leaky and relu 
+	ELUα z =
+		α (exp z − 1) if z < 0
+		z             if z ≥ 0
+
+
+
+
+	
+SELU - enhanced version of ELU 
+
+then the network will self-normalize: the output of each layer will tend to
+preserve mean 0 and standard deviation 1 during training, which solves the vanish‐
+ing/exploding gradients problem
+
+
+
+To use the leaky ReLU activation function, you must create a LeakyReLU instance like
+this:
+
+SELU > ELU > leaky ReLU (and its variants) > ReLU > tanh> logistic.
+
+leaky_relu = keras.layers.LeakyReLU(alpha=0.2)
+layer = keras.layers.Dense(10, activation=leaky_relu,
+kernel_initializer="he_normal")
+
+For SELU activation, just set activation="selu"
+izer="lecun_normal" when creating a layer:
+and kernel_initial
+layer = keras.layers.Dense(10, activation="selu",
+kernel_initializer="lecun_normal")
+
+kernel initializer
+	the connection weights of each layer must be initialized randomly as
+	(fan_in +fan-out)/2
+	
+various initializers for activation function
+	Glorot or Glarot_uniform --> one, Tanh, Logistic, Softmax   , 1 / fanavg
+
+        He      --> ReLU & variants      , 2 / fanin
+	LeCun  --> SELU1                 , fanin
+
+	
+	
+batch normalization is used for vanishing and  exploding gradients
+The technique consists of adding an operation in the model just before or after the
+activation function of each hidden layer, simply zero-centering and normalizing each
+input, then scaling and shifting the result using two new parameter vectors per layer
+	
+Image net
+	ImageNet is a large database of images classified into
+many classes and commonly used to evaluate computer vision systems
+	
+The BatchNormalization class has quite a few hyperparameters you can tweak. The
+defaults will usually be fine, but you may occasionally need to tweak the momentum.
+This hyperparameter is used when updating the exponential moving averages: given a
+new value v (i.e., a new vector of input means or standard deviations computed over
+the current batch), the running average � is updated using the following equation:
+v
+v × momentum + v × 1 − momentum
+
+gradient clipping is used for preventing exploding gradients so that they never exceed 
+set threshhold during backpropogation
+
+transfer learning 	
+	learning the model witha already trained model 
+		that is working with already existing nueral network
+
+
+applying a good initiali‐
+zation strategy for the connection weights, using a good activation function, using
+Batch Normalization, and reusing parts of a pretrained network (possibly built on an
+auxiliary task or using unsupervised learning).
+
+1 moment optimization
+2 nesterov accelerated gradient
+3 Adagrad -
+	In short, this algorithm decays the learning rate, but it does so faster for steep dimen‐
+sions than for dimensions with gentler slopes. This is called an adaptive learning rate
+
+In short, this algorithm decays the learning rate, but it does so faster for steep dimen‐
+sions than for dimensions with gentler slopes. This is called an adaptive learning rate.
+	
+	
+adam and nadam
+	adam uses adaptive moment estimation ,combines momentum optimisation and rmsprop
+	nadam uses one more thing ,nesterov accelerated gradient
+	
+	
+	
+	
+learning rate 
+	learning rate must be selected 
+		high - diverges from the solution
+		low- converges before the solution [suboptimal solution]
+	start with high adn then set it to low 
+	
+	learning rate Reduction types
+		1 Power scheduling
+		2 Exponential  scheduling
+		3 piecewise  scheduling
+		4 performance  scheduling
+regularization technique
+	1 l1 and l2
+	2 Dropout
+
+
+It is a fairly simple algorithm: at every training step, every neuron (including the
+input neurons, but always excluding the output neurons) has a probability p of being
+temporarily “dropped out,” meaning it will be entirely ignored during this training
+step, but it may be active during the next step (see Figure 11-9). The hyperparameter
+p is called the dropout rate
+
+	3 monte carlo dropout
+	4 max norm regularixation
+	Another regularization technique that is quite popular for neural networks is called
+max-norm regularization: for each neuron, it constrains the weights w of the incom‐
+ing connections such that ∥ *w* ∥2 ≤ _r_, where r is the max-norm hyperparameter
+and ∥ · ∥2 is the l2 norm.
+
+usually numpy uses 64 bit precision by defualt but tensorflow uses 32 bit which 
+is enough for the nueralnetwork
+	
+since deep learning models are trained on larger dataset so that wont fit inside the ram
+so DATA API in tensorflow is used
+TensorFlow takes care of all the implementation details, such as multithreading,
+queuing, batching, prefetching, and so on	s
+	
+nuerons in second layer of cnn not connected to all pixelsonly connected to pixels
+in their respective fields
+In turn, each neuron in the second convolutional layer is connected
+only to neurons located within a small rectangle in the first layer. This architecture
+allows the network to concentrate on small low-level features in the first hidden layer,
+then assemble them into larger higher-level features in the next hidden layer
+
+in order for a layer to have the same weight its common to add zeros aronund the input that is called zero padding
+The shift from one receptive field to the
+next is called the stride
+a nuerons weight can be represented as small image the size of the receptive field called
+as filters also called as kernels
+
+
+	when the image in fed as the input feature maop uses horizontal lines 
+	and vertical lines to extract the feature out of the image ,then that 
+	out put is called feature map
+	
+	convulational layers can have multiple feature map and images can have multiple
+	channels [RGB] and grayscale has only one channel
+
+
+Tensorflow implementation
+	
+	In TensorFlow, each input image is typically represented as a 3D tensor of shape
+[height, width, channels]. A mini-batch is represented as a 4D tensor of shape
+[mini-batch size, height, width, channels]. The weights of a convolutional
+layer are represented as a 4D tensor of shape [fh, fw, fn′, fn]. The bias terms of a convo‐
+lutional layer are simply represented as a 1D tensor of shape [fn]	
+
+pooling 
+
+	Their goal is to subsample (i.e., shrink) the input image in order to
+reduce the computational load, the memory usage, and the number of parameters
+(thereby limiting the risk of overfitting).
+cnn layer before output is also known as bottleneck layer
+
+tensorflow implementation
+
+	each input image is typically represented as a 3D tensor of shape
+[height, width, channels]. A mini-batch is represented as a 4D tensor of shape
+[mini-batch size, height, width, channels]. The weights of a convolutional
+layer are represented as a 4D tensor of shape [fh, fw, fn′, fn]. The bias terms of a convo‐
+lutional layer are simply represented as a 1D tensor of shape [fn]
 

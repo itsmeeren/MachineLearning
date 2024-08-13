@@ -1,12 +1,7 @@
-import pandas as pd
-import numpy as np
-import bottleneck as bt
-import random
-from sklearn.datasets import load_iris
-from scipy.stats import linregress
-
-
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import style
+style.use('ggplot')
+# from sklearn.datasets import load_iris
+# from scipy.stats import linregress
 
 
 #creating the datraframe using predefined index using date_frame and HEAD AND TAIL functions
@@ -75,9 +70,80 @@ import matplotlib.pyplot as plt
 # print(df.shape)
 # print(df.head)
 
-x=pd.DataFrame({1:'apple',2:'apple',3:"banana"},index=list('W'))
-print(x)
-l=pd.factorize(x)[0]
-print(l)
+# x=pd.DataFrame({1:'apple',2:'apple',3:"banana"},index=list('W'))
+# print(x)
+# l=pd.factorize(x)[0]
+# print(l)
 
 #Which assigns the value for the categories and helps in diffrentiating
+
+# new_data=pd.DataFrame(np.random.randint(0,100,size=(100,12)),columns=list('ABCDEFGHIJKL'))
+# print(new_data)
+# plt.plot(new_data)
+# plt.show()
+# a=np.arange(15).reshape(5,3)
+# print(a)
+
+#can specify the numpy array in complex mode using dtype function
+# n=np.arange(24).reshape(2,3,4)
+# print(n)
+
+# file_path='/home/karthik/machine_learning/bank.csv'
+# # data_frame=pd.read_csv(file_path)
+# # print(data_frame.head())
+#
+# l1=[x for x in range(1,11)]
+
+# for creating the new file path fro the training the data
+# file_path='/home/karthik/machine_learning/bank.csv'
+# x={1:'hi',2:'hello'}
+# for value in x.values():
+#     new_file_path= os.path.join(file_path,value)#  (initpial path ,added path)
+#     # print(x)
+
+
+# df=pd.DataFrame(np.random.rand(3,3))
+# # df.drop(2,axis=1,inplace=True)
+# perry=[x for x in range(3)]
+# df['hello']=perry
+#
+# print(df)
+
+#
+# x=[x*x for x in range(10)]
+#
+#
+# print(x[:10])
+
+
+
+# x=[1,2,3,4]
+#
+# squared_num = lambda x: x * x
+# x1 = list(map(squared_num, x))
+# print(x1)  # Output: [1, 4, 9, 16]
+# # lambda function with map function can be used to apply function to iterable objectsd in python
+
+
+# x=['hello','hurray']
+
+# y=' '.join(x)
+# print(y)
+#
+#
+# # xe=[i for i in  range(10) if i!=2]
+# # print(xe)
+#
+#
+# int=[i for i in x]
+# print(' '.join(int))
+
+
+# print(x*2)
+
+import numpy as np
+
+#np.argmax return the maximum number's index
+
+my_array=np.array([10,14,12,141])
+print(np.argmax(my_array))

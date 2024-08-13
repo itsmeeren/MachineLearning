@@ -1,0 +1,129 @@
+A sequence of data processing components is called a data pipeline
+
+
+For housing price estimation we use 
+		Multiple regression- as estimation depends on multiple factors ansd its single variate
+		becuase we are estimating single variable that is price
+		performance we are choosing for the model is RMSE-root mean square error
+		RMSE acts as the cost functione the d
+
+Observe the data and see for the loophole that causes model to predict wrong
+categorize the dataset into numerical and categorical data 
+		use describe
+		If numerical use value_count() to calculate the no of repeated things
+		
+plot the histogram for the each numerical values and find out the loopholes 
+
+
+Training dataset
+	irrespective of the other things dataset must be created for thr model
+	training data is split into multiple purpose
+	and random split data is not acceptable because everytime it generates the new dataset
+	which makes the algorithm to see the whole data set (causes overfitting)
+		to overcome that problem 
+			1 hash based splitting 
+			2 random seed generation
+			3 stratified splitting
+	if unique identifier is used and make sure that no row gets deleted if one row gets appended
+	or just create id by combining non changeble like numerical datas in dataframe
+	
+	stratified sampling is dividing the data into homogeneous sub group called strata
+	and right numer of instance from each group is sampled to guarentee from both groups
+ 	pd.cut() function is used to categorize the values into groups called bins
+ 
+ 	housing = strat_train_set.copy() is used to create copy fo the training set and manipulate
+ 	as we want without harming the original set
+ 	housing.plot() is used to plot the numerical data x and y axis we can define with the column
+ 	name
+ 	correlation matrix is used for predicting the behaviour.
+	for correlation matrix pandas.plotting's scatter_matrix can be used 
+	after remove the data quirks which causes anamolies ,peculiarities to the model
+	
+	
+	Estimator -any object that can estimate some parameters based on dataset 
+		   any parameter used to guide the estimation process is known as Hyperparameter
+		   transformer - some estimators can also perform data transformation 
+		   fit()-used for estimation
+		   fit_transform() - for estimation and then fit
+	predictor - estimators that do preditcions
+	hyperparameters are just python strings or numbers
+	
+
+
+categorical data handling
+
+	though the model wants to work with numbers for converting to the number format 
+		scikitlearn's ' OrdinalEncoder() 
+		
+		diadvantage is that if there is any relation between those datas then its efficient
+		like small medium large [hierarchial data]
+		
+	One-Hot encoding 
+		used for nominal data conversion - like blue,green,red (like no relation between 
+		them) 	
+		
+		
+	custom transformer building
+		transfornmer mixin - provides fit_Transform() and ensures comaptibility.
+		baseclass estimator - its the base class for all estimator ,It provides basic 
+		methods 
+		and functionality that are shared among all estimators, such as parameter tuninand  
+		hyperparamter
+			
+	
+feature scaling 
+	
+	common way is using scaling and standardization
+	
+	1 min-max scaling is also known as "Normalizing"
+		maintaining that all the attribute have the same scale ie min-max
+		transformer named MinMaxScaler is used .
+		
+	2 standardization is different - "first it subtracts the mean value and divides by standard 
+		
+		Value so that resulting distribution has unit variance
+		"
+		disadvantage is that it cannot bound to specific value range ie min - max 
+		StandardScanler is used
+Transformer pipeline
+
+	executing the data transformation step in right order followed by a final estiamtor 
+	final estimator that 
+
+
+Model trainer 
+
+	after selecting the algorithm just check whether its doing overfitting or else 
+	the prediction may go wrong 
+
+
+	otherwise the solution for the overfitting is 
+				
+					
+	1 Fine tuning the model
+		grid searching - girdsearchcv () is used to find the best hyperparameter 
+		for training the data .
+		array of the paramter is given out of which it selects the best
+		hyperparameter 
+	
+	
+
+						
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

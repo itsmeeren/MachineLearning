@@ -1,0 +1,64 @@
+osi model
+	open system interconnections
+	
+	The Seven Layers of the OSI Model
+
+    Physical Layer:
+        Deals with the physical transmission of data bits over a medium (e.g., cables, wireless).   
+
+Source icon
+Concerned with electrical signals, connectors, and media.  
+Source icon
+
+Data Link Layer:
+
+    Converts raw data into data frames and adds error detection/correction mechanisms.   
+
+Source icon
+Handles physical addressing (MAC addresses) and media access control.  
+Source icon
+
+Network Layer:
+
+    Routes data packets across multiple networks.   
+
+Source icon
+Responsible for logical addressing (IP addresses).  
+Source icon
+Handles packet forwarding and congestion control.  
+Source icon
+
+Transport Layer:
+
+    Ensures reliable end-to-end data delivery.   
+
+Source icon
+Provides flow control and error recovery.  
+Source icon
+Handles segmentation and reassembly of data.  
+Source icon
+
+Session Layer:
+
+    Establishes, manages, and terminates communication sessions between applications.   
+
+Source icon
+Provides synchronization and checkpointing.  
+Source icon
+
+Presentation Layer:
+
+    Handles data encryption, compression, and formatting.   
+
+Source icon
+Ensures data is in a suitable format for the application layer.  
+Source icon
+
+Application Layer:
+
+    Provides network services to user applications.
+    Includes protocols like HTTP, FTP, SMTP, and DNS.   
+
+Source icon
+
+Remember: The OSI model is a conceptual framework, and real-world networks often combine multiple layers for efficiency. The TCP/IP model, for example, is a simplified version of the OSI model used in the internet

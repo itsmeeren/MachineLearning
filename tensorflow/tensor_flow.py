@@ -13,6 +13,8 @@ x_train=tf.keras.utils.normalize(x_train,axis=1)
 
 x_test=tf.keras.utils.normalize(x_test,axis=1)
 
+
+
 print(x_train[0])
 # # Plotting the first training sample
 # plt.imshow(x_train[0], cmap='gray')
@@ -82,4 +84,4 @@ print(np.argmax(predictions[0]))  # Print the prediction for the first test samp
 
 
 
-#pannaga
+
