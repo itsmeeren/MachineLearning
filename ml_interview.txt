@@ -148,9 +148,11 @@ Regularization (Lambda)
 	
 	penalty term (Theta)
 	1 Ridge regression(l2) - adds the penalty term 
-				penalty term is the square of the coedfficient
+				penalty term is the square of the coefficient
+				uses l2 to calculate magnitude of coefficient
 	2 Lasso regression(l1) - this also adds the penalty term but that is absolute value 
 				it hass the ability to reduce the feature so computationally efficient than 
+				uses l1 to calculate magnitude of coefficient
 	3 Elastic net- its the middle ground between ridge and lasso, 
 				it introduces the term r ,when r=0 its ridge when r=1 its lasso
 				
@@ -368,5 +370,171 @@ SELU- -self normalizing
    	2 input featues must be standardized (mean 0 standard deviation 1)
    	3 used only for  sequential model , not with non sequential like recurrent nueral network
    	
-   	
+   
+ batch normalization
+ 
+ 	The technique consists of adding an operation in the model just before or after the
+	activation function of each hidden layer, simply zero-centering and normalizing each
+	input, then scaling and shifting the result using two new parameter vectors per layer
+	   	
+	it actually scales and shift the input at each nueron hidden layers, so adding two parameter to the algorithm
 	
+	No need to use the standardscaler at the initial input stage if we use batch normalization
+	BN just standardizes its inputs then rescales and offsets them
+	this process is indeed slow but it guarentees the convergence or simply convergene rate is very high makes faster .
+	
+gradient clipping
+
+	its simply a method to pervent exploding gradient problem by clipping them gradient during backpropogation so that they never exceed threshhold
+
+
+
+l2 norm
+	it's often used to measure the magnitude of coefficients in a model.   
+
+Transfer learning
+	
+	
+	using the already trained model to do a similar type of task that the model do,
+	
+	pretrained layers
+		some layers of the preexisting model will have fixed weights and others are trainable weights 
+		those fixed weight layers can be reused for other model only trainable weights are trained using new dataset
+		
+		if you have large training data then unfreeze many layers this will help to get best fine tuned weights
+		tt is also useful to reduce the learning rate when you unfreeze
+		reused layers: this will avoid wrecking their fine-tuned weights.
+		
+		freeze the reused layer first and tehn check for unfreezing the layers from output and check how the model is behaving
+	
+	
+	
+optimizers
+	
+	
+	gradient descent is fast but deep nueral network requires large amount of data finding gradient is slow so fast optimizers like a Momentum optimization, Nesterov Acceler‐
+	ated Gradient, AdaGrad, RMSProp, and finally Adam and Nadam optimization.
+
+momentum optimisation
+	Momentum optimization cares a great deal about what previous gradients were: at
+	each iteration
+	simply introduces a new hyperparameter momentum which is 0.9 usually which prevents momentum from going too large acts as the friction for momentum
+	
+nesterov accelerated gradient
+	NAG takes a slightly different approach. Instead of calculating the gradient at the current position, it calculates the gradient at a point ahead in the momentum direction.
+	hence converges faster than the normal momentum gradient
+	
+optimsers key differencce
+
+
+
+	Gradient Descent
+
+    Simple: Takes steps in the direction of the negative gradient
+
+    Slow: Can be slow in reaching the minima, especially in regions with shallow gradients.
+    Oscillations: Can oscillate in narrow valleys.
+
+Momentum
+
+    Accelerates: Builds up velocity in the direction of the gradient, helping to escape shallow regions and local minima.
+    Reduces oscillations: Damping effect helps reduce oscillations.
+    Sensitive to hyperparameters: The momentum term (beta) requires tuning.
+
+Nesterov Accelerated Gradient (NAG)
+
+    Looks ahead: Calculates the gradient at a point ahead in the momentum direction, improving convergence.   
+
+    Faster: Often converges faster than momentum.
+    More complex: Slightly more complex to implement than momentum.
+
+Drawbacks
+
+    All methods are sensitive to learning rate: Choosing the right learning rate is crucial for all three methods.
+    Potential for overshooting: Both momentum and NAG can overshoot the minimum if the learning rate is too high.
+    Hyperparameter tuning: Momentum and NAG require tuning the momentum term (beta), which can be time-consuming.
+
+In summary:
+
+    Gradient Descent is the simplest but slowest method.
+    Momentum accelerates convergence and reduces oscillations
+
+    NAG builds upon momentum by looking ahead, often leading to faster convergence.
+
+The best choice depends on the specific problem and hyperparameter tuning.
+
+adagrad 
+	it helps the gradient from going towards the steepest slope which makes slow instead it guides towards the normal steep to converge much faster
+	its not that much usefull for deep nueral network,it may be efficient for quadratic equations not dnn
+RMSprop
+	there may be a chance that the adagrad may never converges to the global optimum becuase it doesnt takes steepest slope 
+FTRL (Follow the Regularized Leader) 
+	is an online optimization algorithm used in machine learning. It updates model parameters based on the current data point,
+	 incorporating regularization to prevent overfitting and adapting learning rates for efficient convergence.
+Adam
+	 which stands for adaptive moment estimation, combines the ideas of Momen‐
+	tum optimization and RMSProp: just like Momentum optimization it keeps track of
+	an exponentially decaying average of past gradients, and just like RMSProp it keeps
+	track of an exponentially decaying average of past squared gradients
+   Adamax 
+   	just replaces the l2 norm with the l∞(max) which outperforms adam
+Nadam 
+	uses  both adam and nesterov technique to fast the convergence ,generally better than adam
+	
+	
+Learningrate scheduling 
+		If you set it too low, training will
+	eventually converge to the optimum, but it will take a very long time. If you set it
+	slightly too high, it will make progress very quickly at first, but it will end up dancing
+	around the optimum, never really settling down
+1 Power Scheduling
+
+    Idea: The learning rate starts high and gradually decreases, becoming slower as training progresses.
+    Behavior: The learning rate drops quickly initially and then slows down.
+    
+2. Exponential Scheduling
+
+    Idea: The learning rate decreases exponentially over time.
+  
+    Behavior: The learning rate drops by a factor of 10 every s steps.
+
+3. Piecewise Constant Scheduling
+
+    Idea: Use different constant learning rates for different periods of training.
+    Behavior: Manually set different learning rates for specific epochs.
+    Challenge: Requires careful tuning to find the optimal sequence of learning rates.
+
+4. Performance Scheduling
+
+    Idea: Adjust the learning rate based on the model's performance.
+    Process:
+        Evaluate the model on a validation set every N steps.
+        If the validation error stops improving, reduce the learning rate by a factor of λ.
+    Benefit: Adapts the learning rate based on the model's progress.
+
+In essence:
+
+    Power and exponential scheduling decrease the learning rate automatically over time.
+    Piecewise constant scheduling requires manual intervention.
+    Performance scheduling is data-driven and adjusts the learning rate based on the model's performance.
+
+
+Dropout   
+	Random Selection: For each training step, a random percentage (usually 50%) of neurons are chosen to be "dropped out". This means they don't participate in the calculations for that specific training step.
+	Temporary Absence: The dropped-out neurons are inactive only for the current training step. They can be active again in the next step.
+	Prevention of Overfitting: By randomly dropping neurons, the network is forced to learn more distributed representations. This helps prevent overfitting, where the network becomes too specialized on the training data and performs poorly on new data.
+	No Dropout After Training: Once the training is complete, all neurons are used. Dropout is only applied during the training phase.
+	So, while dropout might make training slower, it can ultimately save time by producing a more accurate model that requires less fine-tuning.
+NOTE:
+		
+	Dropout easily eliminates the overfitting
+	overfitting - increase dropout rate 
+	underfitting - decrease the dropout rate
+	is SELU is used then Alphadropout should be used which preserves the standard deviation and mean which is necessary for the SELU
+	
+Monte Carlo dropout
+	all are same but dropout is kept in inference(while making prediction) which produces multiple prediction
+
+Max norm 
+	regularization is a technique used in neural networks to prevent overfitting. It imposes a constraint on the magnitude (length) of the weight vector for each neuron in the network.
+	By limiting the size of these weight vectors, it helps to prevent individual neurons from having an overly dominant influence on the network's output. This ultimately improves the model's ability to generalize to unseen data

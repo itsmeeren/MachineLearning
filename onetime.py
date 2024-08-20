@@ -1,5 +1,5 @@
-from matplotlib.pyplot import style
-style.use('ggplot')
+# from matplotlib.pyplot import style
+# style.use('ggplot')
 # from sklearn.datasets import load_iris
 # from scipy.stats import linregress
 
@@ -141,9 +141,36 @@ style.use('ggplot')
 
 # print(x*2)
 
+# import numpy as np
+#
+# #np.argmax return the maximum number's index
+#
+# my_array=np.array([10,14,12,141])
+# print(np.argmax(my_array))
+
 import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 
-#np.argmax return the maximum number's index
+# df=pd.read_pickle('x.pkl')
 
-my_array=np.array([10,14,12,141])
-print(np.argmax(my_array))
+
+# df2=df[0:2,0:2].fillna(np.nan)
+# print(df.describe())
+# print(df.head())
+# # print(df.iloc[0,0])# for specific element access
+# df['num']=['one','two','three','four','five']
+# print(df.head())
+# print(df['num'].isin(['one','three']))
+# df.fillna(value=15)
+# print(df.head())
+# # df2=df.reindex(index=df[0:4],columns=list(df.columns)+['x'])
+# # print(df2.head())
+df=pd.DataFrame(np.random.randn(5,3),columns=list('xyz'))
+# print(df)
+
+df[df<1 ]=np.nan
+print(df)
+df.fillna(value=1,inplace= True
+          )
+print(df)
