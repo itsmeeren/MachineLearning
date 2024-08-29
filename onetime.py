@@ -166,11 +166,28 @@ import pandas as pd
 # print(df.head())
 # # df2=df.reindex(index=df[0:4],columns=list(df.columns)+['x'])
 # # print(df2.head())
-df=pd.DataFrame(np.random.randn(5,3),columns=list('xyz'))
-# print(df)
 
-df[df<1 ]=np.nan
+# df[df<1 ]=np.nan
+# print(df)
+# df.fillna(value=1,inplace= True
+#           )
+# print(df.shape)
+
+# df=pd.DataFrame(np.random.randn(5,3),columns=list('xyz'))
+
+# Assuming you want to replace values less than 1 in the first column
+# df.iloc[:, 0] = df.iloc[:, 0].apply(lambda x: np.nan if x < 0.5 else x)
+# print(df)
+# print(df.iloc[2:3,:])
+
+df=pd.DataFrame(np.random.randn(10,3),columns=list('xyz'))
 print(df)
-df.fillna(value=1,inplace= True
-          )
-print(df)
+p1=df[:3]
+p2=df[3:7]
+p3=df[7:]
+# print(p1,p2,p3)
+
+p_c1=pd.concat([p1,p2,p3])
+print(p_c1)
+print(df.shape)
+
