@@ -72,6 +72,7 @@ Regularization -Constraining a model to make it simpler and reduce the risk of o
 Hyperparameter . A hyperparameter is a parameter of a learning algorithm (not of the
 model). As such, it is not affected by the learning algorithm itself
 
+
 tesing and validating 
 
 
@@ -124,8 +125,41 @@ Theta - parameters of the linear regression model like slope and intercept ,find
 
 costfunction(RMSE) - takes the difference between actual and predicted value and squares and then takes avg
 
+Common Cost Functions:
+
+    Mean Squared Error (MSE):
+        Commonly used for regression problems.
+        Calculates the average squared difference between predicted and true values.
+        Formula: MSE = 1/n * Σ(y_pred - y_true)^2
+
+    Cross-Entropy:
+        Commonly used for classification problems.
+        Measures the dissimilarity between the predicted probability distribution and the true probability distribution.
+        Formula: Cross-Entropy = -Σ(y_true * log(y_pred))
+
+    Hinge Loss:
+        Used for support vector machines (SVMs).
+        Encourages correct classification with a margin.
+        Formula: Hinge Loss = max(0, 1 - y_true * y_pred)
+
+    Mean Absolute Error (MAE):
+        Similar to MSE but uses absolute differences instead of squared differences.
+        Less sensitive to outliers.
+        Formula: MAE = 1/n * Σ|y_pred - y_true|
+
+Choosing the Right Cost Function:
+
+The choice of cost function depends on the problem type and desired properties. For example:
+
+    Regression: MSE is often the default choice.
+    Classification: Cross-entropy is commonly used for multi-class classification.
+    Hinge Loss: Suitable for SVMs, especially for margin-based classification.
+
+By understanding the cost function, you can better grasp how machine learning models are trained and evaluated.
+It is a fundamental concept in the field of machine learning.
+
 Note
-	weights in nueral network is analogous to the theta values ,where the optimisation starts finding the point where the gradient of the slope is zero
+	weights in nueral network is analogous to the theta values ,where the optimisation algorithm starts finding the point where the gradient of the slope is zero
 
 
 Learning rate in gradient descent
